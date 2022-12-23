@@ -1,0 +1,12 @@
+apiVersion: kubeadm.k8s.io/v1beta2
+kind: ClusterConfiguration
+dns:
+    type: CoreDNS
+    imageRepository: $EKSD_IMAGE_REPO/coredns
+    imageTag: $COREDNS_VERSION
+etcd:
+    local:
+        imageRepository: $EKSD_IMAGE_REPO/etcd-io
+        imageTag: $ETCD_VERSION
+imageRepository: $EKSD_IMAGE_REPO/kubernetes
+kubernetesVersion: $EKSD_KUBE_VERSION

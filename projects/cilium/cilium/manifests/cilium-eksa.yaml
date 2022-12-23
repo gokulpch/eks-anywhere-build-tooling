@@ -1,0 +1,12 @@
+cni:
+  chainingMode: "portmap"
+ipam:
+  mode: "kubernetes"
+identityAllocationMode: "crd"
+prometheus:
+  enabled: true
+rollOutCiliumPods: true
+tunnel: "geneve"
+operator:
+  prometheus:
+    enabled: true

@@ -1,0 +1,189 @@
+{
+  "$id": "https://packages.eks.amazonaws.com/metallb.schema.json",
+  "title": "Metallb",
+  "type": "object",
+  "properties": {
+    "IPAddressPools": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/IPAddressPool"
+      }
+    },
+    "L2Advertisements": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/L2Advertisement"
+      }
+    },
+    "BGPAdvertisements": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/BGPAdvertisement"
+      }
+    },
+    "BGPPeers": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/BGPPeer"
+      }
+    }
+  },
+  "$defs": {
+    "IPAddressPool": {
+      "description": "A list of IP address ranges over which MetalLB has authority. You can list multiple ranges in a single pool, they will all share the same settings. Each range can be either a CIDR prefix, or an explicit start-end range of IPs.",
+      "type": "object",
+      "required": [
+        "name",
+        "addresses"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "addresses": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "autoAssign": {
+          "default": true,
+          "description": "AutoAssign flag used to prevent MetallB from automatic allocation for a pool.",
+          "type": "boolean"
+        }
+      }
+    },
+    "L2Advertisement": {
+      "description": "L2Advertisement allows to advertise the LoadBalancer IPs provided by the selected pools via L2.",
+      "type": "object",
+      "required": [
+        "ipAddressPools"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "ipAddressPools": {
+          "description": "The list of IPAddressPools to advertise via this advertisement, selected by name.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "name": {
+            "description": "The name of this L2Advertisement resource.",
+            "type": "string"
+        }
+      }
+    },
+    "BGPAdvertisement": {
+      "description": "BGPAdvertisement allows to advertise the IPs coming from the selected IPAddressPools via BGP, setting the parameters of the BGP Advertisement.",
+      "type": "object",
+      "required": [
+        "ipAddressPools"
+      ],
+      "additionalProperties": false,
+      "type": "object",
+      "properties": {
+        "name": {
+            "description": "The name of this BGPAdvertisement resource.",
+            "type": "string"
+        },
+        "aggregationLength": {
+          "default": 32,
+          "description": "The aggregation-length advertisement option lets you “roll up” the /32s into a larger prefix. Defaults to 32. Works for IPv4 addresses.",
+          "minimum": 1,
+          "type": "integer"
+        },
+        "aggregationLengthV6": {
+          "default": 128,
+          "description": "The aggregation-length advertisement option lets you “roll up” the /128s into a larger prefix. Defaults to 128. Works for IPv6 addresses.",
+          "type": "integer"
+        },
+        "communities": {
+          "description": "The BGP communities to be associated with the announcement. Each item can be a community of the form 1234:1234 or the name of an alias defined in the Community CRD.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "ipAddressPools": {
+          "description": "The list of IPAddressPools to advertise via this advertisement, selected by name.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "localPref": {
+          "description": "The BGP LOCAL_PREF attribute which is used by BGP best path algorithm, Path with higher localpref is preferred over one with lower localpref.",
+          "type": "integer"
+        },
+        "peers": {
+          "description": "Limits the bgppeer to advertise the ips of the selected pools to. When empty, the loadbalancer IP is announced to all the BGPPeers configured.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "BGPPeer": {
+      "additionalProperties": false,
+      "description": "Peers for the BGP protocol.",
+      "required": [
+        "myASN",
+        "peerASN",
+        "peerAddress"
+      ],
+      "type": "object",
+      "properties": {
+        "holdTime": {
+          "description": "Requested BGP hold time, per RFC4271.",
+          "type": "string"
+        },
+        "keepaliveTime": {
+          "description": "Requested BGP keepalive time, per RFC4271.",
+          "type": "string"
+        },
+        "myASN": {
+          "description": "AS number to use for the local end of the session.",
+          "maximum": 4294967295,
+          "minimum": 0,
+          "type": "integer"
+        },
+        "password": {
+          "description": "Authentication password for routers enforcing TCP MD5 authenticated sessions",
+          "type": "string"
+        },
+        "passwordSecret": {
+          "description": "passwordSecret is name of the authentication secret for BGP Peer. The secret must be of type 'kubernetes.io/basic-auth', and created in the same namespace and cluster as the MetalLB deployment. The password is stored in the secret as the key 'password'.",
+          "type": "object"
+        },
+        "peerASN": {
+          "description": "AS number to expect from the remote end of the session.",
+          "maximum": 4294967295,
+          "minimum": 0,
+          "type": "integer"
+        },
+        "peerAddress": {
+          "description": "Address to dial when establishing the session.",
+          "type": "string"
+        },
+        "peerPort": {
+          "default": 179,
+          "description": "Port to dial when establishing the session.",
+          "maximum": 16384,
+          "minimum": 0,
+          "type": "integer"
+        },
+        "routerID": {
+          "description": "BGP router ID to advertise to the peer",
+          "type": "string"
+        },
+        "sourceAddress": {
+          "description": "Source address to use when establishing the session.",
+          "type": "string"
+        }
+      }
+    }
+  }
+}

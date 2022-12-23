@@ -1,0 +1,8 @@
+.git
+vendor
+eks-anywhere-go-mod-download
+eks-anywhere-build-tooling
+GIT_TAG
+.DS_Store
+_output/
+bin/*

@@ -1,0 +1,4 @@
+77f434d1dfa437bb927b3a7ddd10096cdcee13c64595fb4a44269547c6f3560c  _output/bin/metallb/linux-amd64/controller
+6fd986c5e2676930e6f33b4e4d7f84975dabfe4324522f0c820bfebcdf31aaa7  _output/bin/metallb/linux-amd64/speaker
+233a8aa4be738801437ef5b0cb5427589de9e55e94ed5c138535db66a235fd2d  _output/bin/metallb/linux-arm64/controller
+89ad66bf6e72cd24ea0c19631014e74ef41ca3f6651cf65ee3d3c53ac4bbe28a  _output/bin/metallb/linux-arm64/speaker

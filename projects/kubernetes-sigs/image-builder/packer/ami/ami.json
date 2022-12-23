@@ -1,0 +1,9 @@
+{
+  "ami_regions": "us-west-2",
+  "aws_region": "us-west-2",
+  "custom_role": "true",
+  "custom_role_names": "{{env `BUILDER_ROOT`}}/ansible/roles/load_additional_files",
+  "ansible_extra_vars": "@{{env `BUILDER_ROOT`}}/packer/ami/ansible_extra_vars.yaml",
+  "volume_size": "25",
+  "manifest_output": "{{env `MANIFEST_OUTPUT`}}"
+}

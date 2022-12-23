@@ -1,0 +1,4 @@
+fca2abf400a3f86b78c2565c8bed8bd82c28c626bce4a6ef5796bf98106e187c  _output/bin/kind/linux-amd64/kind
+be28807a5cf4874455663df94eb1aa4750d4ee650ec46eb319997607460d8ee9  _output/bin/kind/linux-amd64/kindnetd
+292f3e57d5c24d6f64b82120a8bc97d8702cf4d666414955953d0a2d4632404e  _output/bin/kind/linux-arm64/kind
+d9172367740e7018035c87923f121479d35b9c78863da65cba0a0207d6864fda  _output/bin/kind/linux-arm64/kindnetd
