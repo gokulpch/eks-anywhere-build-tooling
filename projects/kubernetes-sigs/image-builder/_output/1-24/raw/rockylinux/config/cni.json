@@ -1,0 +1,9 @@
+{
+  "kubernetes_cni_deb_version": "",
+  "kubernetes_cni_http_checksum": "sha256:52dfb9ea9589d0a46b8ee61e056ae59e5b1eff20dc35e3a0084e3333434f7a25",
+  "kubernetes_cni_http_source": "https://distro.eks.amazonaws.com/kubernetes-1-24/releases/5/artifacts/plugins",
+  "kubernetes_cni_rpm_version": "",
+  "kubernetes_cni_semver": "v1.1.1",
+  "kubernetes_cni_source_type": "http",
+  "kubernetes_cni_host_device_sha256": "3b3584f4c4d2e5d66cf62bbc9bd69f38b1411aaeaa866b01dea6964d14d66ae4"
+}

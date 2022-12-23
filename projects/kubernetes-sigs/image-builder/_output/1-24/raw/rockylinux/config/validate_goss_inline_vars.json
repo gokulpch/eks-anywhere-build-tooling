@@ -1,0 +1,19 @@
+{
+	"ARCH":"amd64",
+	"OS":"ubuntu",
+	"PROVIDER":"ova",
+	"containerd_version":"1.4.4",
+	"etcd_version": "v3.5.4",
+	"etcd_sha256": "bb97ecc116e43da7d59f560169c0b7d494d8456108865216dfb4d86852126ca0",
+	"etcdadm_version": "v0.1.5",
+	"kubernetes_cni_deb_version":"",
+	"kubernetes_cni_rpm_version":"",
+	"kubernetes_cni_source_type":"http",
+	"kubernetes_cni_version":"v1.1.1",
+	"kubernetes_cni_host_device_sha256": "3b3584f4c4d2e5d66cf62bbc9bd69f38b1411aaeaa866b01dea6964d14d66ae4",
+	"kubernetes_deb_version":"",
+	"kubernetes_rpm_version":"",
+	"kubernetes_source_type":"http",
+	"pause_image": "public.ecr.aws/eks-distro/kubernetes/pause:v1.24.8-eks-1-24-5"
+
+}

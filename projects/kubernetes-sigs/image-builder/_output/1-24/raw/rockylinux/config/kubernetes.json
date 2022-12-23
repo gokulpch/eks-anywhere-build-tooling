@@ -1,0 +1,17 @@
+{
+  "crictl_source_type": "http",
+  "crictl_url": "https://anywhere-assets.eks.amazonaws.com/releases/bundles/24/artifacts/cri-tools/v1.24.2/cri-tools-linux-amd64.tar.gz",
+  "crictl_sha256": "8a585ebf0b6be43891763db62166fb561efadac8782a96384cd2ae293d70e76d",
+  "kubernetes_container_registry": "public.ecr.aws/eks-distro",
+  "kubernetes_http_source": "https://distro.eks.amazonaws.com/kubernetes-1-24/releases/5/artifacts/kubernetes",
+  "kubernetes_load_additional_imgs": "true",
+  "kubernetes_semver": "v1.24.8",
+  "kubernetes_full_version": "v1.24.8-eks-1-24-5",
+  "kubernetes_series": "v1.24",
+  "kubernetes_source_type": "http",
+  "etcd_http_source": "https://distro.eks.amazonaws.com/kubernetes-1-24/releases/5/artifacts/etcd/v3.5.4/etcd-linux-amd64-v3.5.4.tar.gz",
+  "etcd_version": "v3.5.4",
+  "etcd_sha256": "bb97ecc116e43da7d59f560169c0b7d494d8456108865216dfb4d86852126ca0",
+  "etcdadm_http_source": "https://anywhere-assets.eks.amazonaws.com/releases/bundles/24/artifacts/etcdadm/5b496a72af3d80d64a16a650c85ce9a5882bc014/etcdadm-linux-amd64.tar.gz",
+  "etcdadm_version": "v0.1.5"
+}
